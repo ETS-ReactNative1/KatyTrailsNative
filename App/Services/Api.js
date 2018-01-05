@@ -2,7 +2,7 @@
 import apisauce from 'apisauce'
 
 // our "constructor"
-const create = (baseURL = 'https://hidden-reaches-61697.herokuapp.com/') => {
+const create = (baseURL = 'https://hidden-reaches-61697.herokuapp.com/' + 'https://katy-hiking-trails.herokuapp.com/') => {
   // ------
   // STEP 1
   // ------
@@ -14,10 +14,10 @@ const create = (baseURL = 'https://hidden-reaches-61697.herokuapp.com/') => {
     baseURL,
     // here are some default headers
     headers: {
-      'Cache-Control': 'no-cache'
+      "Content-Type": "application/json"
     },
-    // 10 second timeout...
-    timeout: 10000
+    // 50 second timeout...
+    timeout: 50000
   })
 
   // ------
@@ -34,7 +34,7 @@ const create = (baseURL = 'https://hidden-reaches-61697.herokuapp.com/') => {
   // Since we can't hide from that, we embrace it by getting out of the
   // way at this level.
   //
-  const getTrails = () => api.get('https://katy-hiking-trails.herokuapp.com/trails.json')
+  const getTrails = () => api.get('trails.json')
 
   // ------
   // STEP 3
