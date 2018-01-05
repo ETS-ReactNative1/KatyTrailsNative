@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, ListView, Text } from 'react-native'
+import { View, ListView, Text, TouchableOpacity, Clipboard } from 'react-native'
 import { connect } from 'react-redux'
 
 // For empty lists
@@ -75,10 +75,10 @@ class TrailsScreen extends Component {
     // You can condition on sectionID (key as string), for different cells
     // in different sections
     return (
-      <View style={styles.row}>
+      <TouchableOpacity style={styles.row} onPress={() => Clipboard.setString(rowData.title)}>
         <Text style={styles.boldLabel}>Section {sectionID} - {rowData.title}</Text>
         <Text style={styles.label}>{rowData.description}</Text>
-      </View>
+      </TouchableOpacity>
     )
   }
 
@@ -119,6 +119,7 @@ class TrailsScreen extends Component {
     return (
       <View style={styles.container}>
         <ListView
+          style={styles.section}
           renderSectionHeader={this.renderHeader}
           contentContainerStyle={styles.listContent}
           dataSource={this.state.dataSource}
