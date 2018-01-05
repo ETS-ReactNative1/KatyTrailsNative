@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 // import AlertMessage from '../Components/AlertMessage'
 
 // Styles
-import styles from './Styles/ViewStyle'
+import styles from './Styles/TrailsScreenStyle'
 
 class TrailsScreen extends Component {
   constructor (props) {

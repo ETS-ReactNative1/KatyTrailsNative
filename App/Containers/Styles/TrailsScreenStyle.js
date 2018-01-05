@@ -9,7 +9,7 @@ export default StyleSheet.create({
   },
   row: {
     flex: 1,
-    backgroundColor: Colors.fire,
+    backgroundColor: Colors.steel,
     marginVertical: Metrics.smallMargin,
     justifyContent: 'center'
   },
