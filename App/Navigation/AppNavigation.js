@@ -1,17 +1,17 @@
 import { StackNavigator } from 'react-navigation'
-import View from '../Containers/View'
+import TrailsScreen from '../Containers/TrailsScreen'
 import LaunchScreen from '../Containers/LaunchScreen'
 
 import styles from './Styles/NavigationStyles'
 
 // Manifest of possible screens
 const PrimaryNav = StackNavigator({
-  View: { screen: View },
+  TrailsScreen: { screen: TrailsScreen },
   LaunchScreen: { screen: LaunchScreen }
 }, {
   // Default config for all screens
   headerMode: 'none',
-  initialRouteName: 'LaunchScreen',
+  initialRouteName: 'TrailsScreen',
   navigationOptions: {
     headerStyle: styles.header
   }

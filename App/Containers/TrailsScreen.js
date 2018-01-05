@@ -8,7 +8,7 @@ import { connect } from 'react-redux'
 // Styles
 import styles from './Styles/ViewStyle'
 
-class View extends Component {
+class TrailsScreen extends Component {
   constructor (props) {
     super(props)
 
@@ -142,4 +142,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(View)
+export default connect(mapStateToProps, mapDispatchToProps)(TrailsScreen)
