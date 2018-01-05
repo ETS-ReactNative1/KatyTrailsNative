@@ -1,4 +1,6 @@
-[{
+{
+  "Trails": [
+    {
     id: 1,
     name: "Mason Highland",
     description: "This trail departs the Oxbow Bayou South Side and runs southwest to the asphalt trail off Highland Knolls. Nice pine forest near the south end of the trail. Trail is inundated when Barker Reservoir water level exceeds 89’. Parking is available on the street on the west side of Pattison Elementary School, at the Walgreens at Highland Knolls and Fry Rd or at the south dead-end of Alana Springs Dr.",
@@ -297,5 +299,5 @@
     created_at: "2017-12-03T17:27:21.116Z",
     updated_at: "2017-12-03T17:27:21.116Z",
     url: "https://katy-hiking-trails.herokuapp.com/trails/30.json"
-  }
-]
+  }]
+}
