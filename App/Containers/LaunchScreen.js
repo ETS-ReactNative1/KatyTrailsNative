@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ScrollView, Text, Image, View } from 'react-native'
+import { ScrollView, Text, Image, View, Button } from 'react-native'
 import DevscreensButton from '../../ignite/DevScreens/DevscreensButton.js'
 import API from '../Services/Api'
 
@@ -9,10 +9,17 @@ import styles from './Styles/LaunchScreenStyles'
 
 export default class LaunchScreen extends Component {
   render () {
+    const { navigate } = this.props.navigation;
     return (
       <View style={styles.mainContainer}>
         <Image source={Images.background} style={styles.backgroundImage} resizeMode='stretch' />
         <ScrollView style={styles.container}>
+        <Button
+          title="Go TrailsScreen"
+          onPress={() =>
+            navigate('TrailsScreen', { name: 'Trails' })
+          }
+        />
           <View style={styles.centered}>
             <Image source={Images.launch} style={styles.logo} />
           </View>

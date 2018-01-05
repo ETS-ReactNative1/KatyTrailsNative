@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, ListView, Text, TouchableOpacity, Clipboard } from 'react-native'
+import { View, ListView, Text, TouchableOpacity, Clipboard, Button, ScrollView } from 'react-native'
 import { connect } from 'react-redux'
 
 // For empty lists
@@ -50,7 +50,7 @@ class TrailsScreen extends Component {
     // in different sections
     return (
       <TouchableOpacity style={styles.row} onPress={() => Clipboard.setString(rowData.name)}>
-        <Text style={styles.boldLabel}>Section {sectionID} - {rowData.name}</Text>
+        <Text style={styles.boldLabel}>{rowData.name}</Text>
         <Text style={styles.label}>{rowData.description}</Text>
       </TouchableOpacity>
     )
@@ -82,25 +82,34 @@ class TrailsScreen extends Component {
 
   renderHeader (data, sectionID) {
     switch (sectionID) {
-      case 'first':
-        return <View style={styles.sectionHeader}><Text style={styles.boldLabel}>First Section</Text></View>
+      case 'Trails':
+        return <View style={styles.sectionHeader}><Text style={styles.boldLabel}>All Trails</Text></View>
       default:
         return <View style={styles.sectionHeader}><Text style={styles.boldLabel}>Second Section</Text></View>
     }
   }
 
   render () {
+    const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
-        <ListView
-          style={styles.section}
-          renderSectionHeader={this.renderHeader}
-          contentContainerStyle={styles.listContent}
-          dataSource={this.state.dataSource}
-          onLayout={this.onLayout}
-          renderRow={this.renderRow}
-          enableEmptySections
+        <ScrollView style={styles.container}>
+        <Button
+          title="Go LaunchScreen"
+          onPress={() =>
+            navigate('LaunchScreen', { name: 'Launch' })
+          }
         />
+          <ListView
+            style={styles.section}
+            renderSectionHeader={this.renderHeader}
+            contentContainerStyle={styles.listContent}
+            dataSource={this.state.dataSource}
+            onLayout={this.onLayout}
+            renderRow={this.renderRow}
+            enableEmptySections
+          />
+        </ScrollView>
       </View>
     )
   }
