@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ScrollView, Text } from 'react-native'
+import { ScrollView, Text, Button } from 'react-native'
 import { connect } from 'react-redux'
 
 import styles from './Styles/TrailScreenStyle'
@@ -7,13 +7,24 @@ import styles from './Styles/TrailScreenStyle'
 class TrailScreen extends Component {
    constructor (props) {
      super(props)
-     this.state = {}
+     this.state = {
+       name: this.props.name,
+       description: this.props.description,
+       maplink: this.props.maplink
+     }
    }
+
+   static navigationOptions = ({navigation}) => ({
+    title: navigation.state.params.name,
+  });
 
   render () {
     return (
       <ScrollView style={styles.container}>
-        <Text>TrailScreen Container</Text>
+        <Text>Trail View</Text>
+        <Text>{this.props.navigation.state.params.name}</Text>
+        <Text>{this.props.navigation.state.params.description}</Text>
+        <Text>Blah Blah</Text>
       </ScrollView>
     )
   }

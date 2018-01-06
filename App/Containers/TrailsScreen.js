@@ -21,6 +21,10 @@ class TrailsScreen extends Component {
     }
   }
 
+  static navigationOptions = {
+    title: 'All Trails',
+  };
+
   renderRow (rowData, sectionID) {
     return (
       <TouchableOpacity style={styles.row}>
@@ -34,29 +38,15 @@ class TrailsScreen extends Component {
     return this.state.dataSource.getRowCount() === 0
   }
 
-  renderHeader (data, sectionID) {
-    switch (sectionID) {
-      case 'Trails':
-        return <View style={styles.sectionHeader}><Text style={styles.boldLabel}>All Trails</Text></View>
-      default:
-        return <View style={styles.sectionHeader}><Text style={styles.boldLabel}>Second Section</Text></View>
-    }
-  }
-
   render () {
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container}>
-        <RoundedButton
-          text="Go to LaunchScreen"
-          onPress={() =>
-            navigate('LaunchScreen', { name: 'Launch' })
-          }
-        />
+          <RoundedButton onPress={() => navigate('TrailScreen', {name: 'Trail 1', description: 'Some trail'})}
+          text="View Trail"/>
           <ListView
             style={styles.section}
-            renderSectionHeader={this.renderHeader}
             contentContainerStyle={styles.listContent}
             dataSource={this.state.dataSource}
             onLayout={this.onLayout}
