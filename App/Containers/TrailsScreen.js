@@ -34,7 +34,6 @@ class TrailsScreen extends Component {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container}>
-          <RoundedButton onPress={() => navigate('TrailScreen', {name: 'Trail 1', description: 'Some trail'})} text="View Trail"/>
           <ListView
             style={styles.section}
             contentContainerStyle={styles.listContent}
