@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, ListView, Text, TouchableOpacity, Clipboard, Button, ScrollView } from 'react-native'
+import { View, ListView, Text, TouchableOpacity, Clipboard, Button, ScrollView, Alert } from 'react-native'
 import { connect } from 'react-redux'
 import RoundedButton from '../Components/RoundedButton'
 
@@ -25,15 +25,6 @@ class TrailsScreen extends Component {
     title: 'All Trails',
   };
 
-  renderRow (rowData, sectionID) {
-    return (
-      <TouchableOpacity style={styles.row}>
-        <Text style={styles.boldLabel}>{rowData.name}</Text>
-        <Text style={styles.label}>{rowData.id}</Text>
-      </TouchableOpacity>
-    )
-  }
-
   noRowData () {
     return this.state.dataSource.getRowCount() === 0
   }
@@ -43,14 +34,16 @@ class TrailsScreen extends Component {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container}>
-          <RoundedButton onPress={() => navigate('TrailScreen', {name: 'Trail 1', description: 'Some trail'})}
-          text="View Trail"/>
+          <RoundedButton onPress={() => navigate('TrailScreen', {name: 'Trail 1', description: 'Some trail'})} text="View Trail"/>
           <ListView
             style={styles.section}
             contentContainerStyle={styles.listContent}
             dataSource={this.state.dataSource}
             onLayout={this.onLayout}
-            renderRow={this.renderRow}
+            renderRow={(rowData) => <TouchableOpacity style={styles.row} onPress={() => navigate('TrailScreen', {name: rowData.name, description: rowData.description, maplink: rowData.maplink})}>
+              <Text style={styles.boldLabel}>{rowData.name}</Text>
+              <Text style={styles.label}>{rowData.id}</Text>
+            </TouchableOpacity>}
             enableEmptySections
           />
         </ScrollView>
