@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ScrollView, Text, Button, Linking, TouchableOpacity } from 'react-native'
+import { ScrollView, Text, Button, Linking, TouchableOpacity, View } from 'react-native'
 import { connect } from 'react-redux'
 
 import styles from './Styles/TrailScreenStyle'
@@ -20,13 +20,15 @@ class TrailScreen extends Component {
 
   render () {
     return (
-      <ScrollView style={styles.container}>
-        <Text>{this.props.navigation.state.params.name}</Text>
-        <Text>{this.props.navigation.state.params.description}</Text>
-        <TouchableOpacity style={styles.row} onPress={() => Linking.openURL(this.props.navigation.state.params.maplink).catch(err => console.error('An error occurred', err))}>
-          <Text style={styles.boldLabel}>Link to Map</Text>
-        </TouchableOpacity>
-      </ScrollView>
+      <View style={styles.container}>
+        <ScrollView style={styles.section}>
+          <Text>{this.props.navigation.state.params.name}</Text>
+          <Text>{this.props.navigation.state.params.description}</Text>
+          <TouchableOpacity style={styles.row} onPress={() => Linking.openURL(this.props.navigation.state.params.maplink).catch(err => console.error('An error occurred', err))}>
+            <Text style={styles.boldLabel}>Link to Map</Text>
+          </TouchableOpacity>
+        </ScrollView>
+      </View>
     )
   }
 }
