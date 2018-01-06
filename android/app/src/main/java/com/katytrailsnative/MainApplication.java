@@ -3,6 +3,8 @@ package com.katytrailsnative;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.airbnb.android.react.maps.MapsPackage;
+import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
 import com.i18n.reactnativei18n.ReactNativeI18n;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.learnium.RNDeviceInfo.RNDeviceInfo;
@@ -26,6 +28,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new MapsPackage(),
+            new ReactNativeConfigPackage(),
             new ReactNativeI18n(),
             new VectorIconsPackage(),
             new RNDeviceInfo()
