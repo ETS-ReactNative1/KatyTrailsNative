@@ -22,7 +22,7 @@ class TrailScreen extends Component {
   render () {
     return (
       <View style={styles.container}>
-      <WebView source={{uri: this.props.navigation.state.params.maplink}} style={{flex: 1}}/>
+      <WebView source={{uri: this.props.navigation.state.params.maplink}} style={{flex: 2}}/>
         <ScrollView style={styles.section}>
           <Text>{this.props.navigation.state.params.description}</Text>
           <TouchableOpacity style={styles.row} onPress={() => Linking.openURL(this.props.navigation.state.params.maplink).catch(err => console.error('An error occurred', err))}>
